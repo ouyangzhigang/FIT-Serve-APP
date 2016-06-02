@@ -1,0 +1,308 @@
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select { margin:0px; padding:0px; }
+em { font-style:normal; }
+li { list-style:none; }
+a { text-decoration:none; }
+img { border:none; vertical-align:top; }
+table { border-collapse:collapse; }
+input,textarea { outline:none; }
+textarea { resize:none; overflow:auto; }
+body { font-family: "微软雅黑"; }
+input{border-radius:0px}
+body,html{
+        
+		   	width: 100%;padding-top: 59px;
+		   	background: #f3f3f3;
+		   }
+			#header1{
+				text-align: center;
+				position: fixed;
+				top: 0;
+				left: 0;
+			    width: 100%;
+			    height: 99px;
+			    /*background: rgba(0,0,0,0.5);*/
+			    background: black;
+			    opacity: 0.85;
+			    z-index: 999999;
+			    border:1px solid black;
+			    filter:alpha(opacity=85);
+			    box-shadow: 0  4px 5px #333;
+			    _position:absolute; 
+ 	            _margin-top: 0; 
+ 	            _top:expression(documentElement.scrollTop);	
+ 	            min-width: 320px;	
+ 	            _width:expression(document.body.clientWidth < 320 ? "320px" : "auto");	    
+			    /*FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=##15A216,endColorStr=#fafafa);*/ 
+			}
+			#header1_img{
+				margin-top: 5px;
+				width:81px;
+				height: 65px;
+				}
+			#navnav{
+				width: 100%;
+				margin: 9px auto;
+				text-align: center;
+			}
+			#navnav a{
+				transform: uppercase;
+				color: #adadad;
+				font-family:"HUM521L";
+				font-size: 15px;
+        font-weight:400;
+        transition: 1s;   
+        margin-left: 3px;            
+			}
+			#navnav_slide{
+				position: absolute;
+				bottom: -15px;
+				width: 21px;
+				height: 15px;
+				left: 0;
+				transition: 1s ease-in-out;                                
+			}
+	
+   #footer{
+   	min-width: 325px;
+   	_min-width:325px
+    position:relative;
+	_width:expression(document.body.clientWidth < 320 ? "320px" : "auto");	  
+	width: 100%;padding-top: 1px;
+	margin-top: 15px;
+	padding-bottom: 10px;
+	text-shadow:1px 2px 2px white;	
+	font-family: "微软雅黑";
+	color: #666666;
+	overflow: hidden;
+	background: #e0e0e0;
+}
+.footer_left,.footer_right{width: 49%;display: inline-block;background: #e0e0e0;min-width: 100px;
+   	_min-width:100px
+	_width:expression(document.body.clientWidth < 100 ? "100px" : "auto");}
+.footer_left{vertical-align: top;float: left;}
+.footer_right{border-left:1px #bcbcbc solid;float: right;padding-top: 10px;}
+.link{float: right;height: 50px;}
+.link a{width: 30px;float: left;margin-left: 6px;}
+.link1{
+	margin-left: 0;
+}
+.link a img{
+	width: 100%;
+}
+
+.contact{margin-left: 3%;font-size: 0.75em}
+.contact_logo{
+	width: 143px;
+	margin-bottom: 10px;
+}
+.contact_logo img{
+	width: 100%;
+}
+.contact p{
+	margin-bottom: 5px;
+}
+ .parner{
+  margin: 0 auto;
+  overflow: hidden;
+}
+.parner div{
+  float: left;
+  overflow: hidden;
+  
+}
+.parner div a{
+  float: left;
+  width: 38px;
+  margin:0 10px;
+}
+.parner div a img{
+  width: 100%;
+}
+
+@media screen and (max-width: 640px){
+.link a{margin-left: 5px}
+.contact{margin-left: 10px}
+.contact_logo{width: 120px;}
+.swiper>p{margin-top: 35px;}
+.parner{width: 100%;}
+.parner div{display: block;float: none;margin: 2% auto}
+.parner>div:nth-child(1){width: 320px;}
+.parner>div:nth-child(2){width: 260px;}
+.parner div a{margin:0 7px;}
+}
+@media screen and (max-width: 480px){
+.link{margin-right: 0px}
+.contact{margin-left: 2px}
+.content .con:nth-child(n){
+  width: 48%;
+  margin-top: 2%;
+  margin-left: 4%;
+  margin-right: 0;
+}
+}
+   @media only screen and (min-width: 100px) and (max-width: 640px) {
+			 #partner a{margin-right:1px;}
+    }
+ .content .con:nth-child(2n+1){
+  margin-left: 0;
+}
+.device .arrow-left{
+  height: 30px;
+  width: 10px;
+}
+.device .arrow-right{
+  height: 30px;
+  width: 10px;
+}
+/* Slicebox Style */
+.sb-slider {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+}
+
+.sb-slider li {
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.sb-slider li > a {
+  outline: none;
+}
+
+.sb-slider li > a img {
+  border: none;
+}
+
+.sb-slider img {
+  max-width: 100%;
+  display: block;
+}
+
+.sb-description {
+  padding: 20px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1000;
+  position: absolute;
+  background: #CBBFAE;
+  background: rgba(190,176,155, 0.4);
+  border-left: 4px solid rgba(255,255,255,0.7);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0); 
+  opacity: 0;
+  color: #fff;
+
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -o-transition: all 200ms;
+  -ms-transition: all 200ms;
+  transition: all 200ms;
+}
+
+.sb-slider li.sb-current .sb-description {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);  
+  opacity: 1;
+}
+
+.sb-slider li.sb-current .sb-description:hover {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
+  filter: alpha(opacity=99);  
+  background: rgba(190,176,155, 0.7);
+}
+
+.sb-perspective {
+  position: relative;
+}
+
+.sb-perspective > div {
+  position: absolute;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-backface-visibility : hidden;
+  -moz-backface-visibility : hidden;
+  -o-backface-visibility : hidden;
+  -ms-backface-visibility : hidden;
+  backface-visibility : hidden;
+}
+
+.sb-side {
+  margin: 0;
+  display: block;
+  position: absolute;
+
+  -moz-backface-visibility : hidden;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+
+/* custom style */
+.shadow {
+  width: 100%;
+  height: 168px;
+  position: relative;
+  margin-top: -110px;
+  background: transparent url("http://tympanus.net/Development/Slicebox/images/shadow.png") no-repeat bottom center;
+  background-size: 100% 100%; /* stretches it */
+  z-index: -1;
+  display: none;
+}
+
+.sb-description h3 {
+  font-size: 20px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.sb-description h3 a {
+  color: #4a3c27;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.5);
+}
+
+.nav-arrows {
+  display: none;
+}
+
+.nav-arrows a {
+  width: 42px;
+  height: 42px;
+  background: #cbbfae url(http://tympanus.net/Development/Slicebox/images/nav.png) no-repeat top left;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  text-indent: -9000px;
+  cursor: pointer;
+  margin-top: -21px;
+  opacity: 0.9;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.nav-arrows a:first-child{
+  left: auto;
+  right: 2px;
+  background-position: top right;
+}
+
+.nav-arrows a:hover {
+  opacity: 1;
+}
+
+
+
+

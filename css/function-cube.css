@@ -1,0 +1,122 @@
+html
+{
+  height:100%;
+}
+
+body
+{
+	margin:0;
+  padding:0;
+  background : -webkit-linear-gradient(top, rgb(0, 0, 0) 00%, rgb(200, 200, 200) 100%);
+  background : -moz-linear-gradient(top, rgb(0, 0, 0) 00%, rgb(200, 200, 200) 100%);
+  background : -o-linear-gradient(top, rgb(0, 0, 0) 00%, rgb(200, 200, 200) 100%);
+  background : -ms-linear-gradient(top, rgb(0, 0, 0) 00%, rgb(200, 200, 200) 100%);
+  background : -linear-gradient(top, rgb(0, 0, 0) 00%, rgb(200, 200, 200) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.container {
+    border: 1px solid black;
+	margin:50px;
+	background:#ccc;
+	width:150px;
+}
+#cubeParent{
+	height:150px;
+	width:150px;
+	position:relative;
+}
+.cubeFace, .cubeFace1{
+	height:150px;
+	width:150px;
+	position:absolute;
+}
+#face1{
+	background:#00F;
+}
+#face2{
+	background:#f0f;
+}
+#face3{
+	background:#063;
+}
+#face4{
+	background:#c00;
+}
+#face5{
+	background:#f60;
+}
+#face6{
+	background:#ff0;
+}
+.carItem{
+	position:absolute;
+	width:85px;
+	height:113px;
+}
+#rotPlane{
+	width:200px;
+	height:200px;
+	background:#00f;
+	position:relative;
+	color:#FFF;
+}
+button
+{
+  padding:5px 10px;
+  margin:10px;
+  border-radius:5px;
+  background : -webkit-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(200, 200, 200) 100%);
+	background : -moz-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(200, 200, 200) 100%);
+	background : -o-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(200, 200, 200) 100%);
+	background : -ms-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(200, 200, 200) 100%); 
+	background : -linear-gradient(top, rgb(255, 255, 255) 0%, rgb(200, 200, 200) 100%);
+  border:1px solid #646464;
+}
+/**
+ *	This element is created inside your target element
+ *	It is used so that your own element will not need to be altered
+ **/
+.time_circles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/**
+ *	This is all the elements used to house all text used
+ * in time circles
+ **/
+.time_circles > div {
+    position: absolute;
+    text-align: center;
+}
+
+/**
+ *	Titles (Days, Hours, etc)
+ **/
+.time_circles > div > h4 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Century Gothic';
+}
+
+/**
+ *	Time numbers, ie: 12
+ **/
+.time_circles > div > span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Century Gothic';
+    font-size: 150%;
+    margin-top: 0.4em;
+    font-weight: bold;
+}
+#someTimer1{
+		position: absolute;
+		top: 9%;left: -29%;
+	}
+

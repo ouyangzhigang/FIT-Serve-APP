@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/paper.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DEMO</title>
+
+<style type="text/css" >
+* { margin: 0; padding: 0;}
+html, body { width: 100%; height: 100%; overflow: hidden;background: #555;}
+.page_wrap { position: relative;width: 100%;height: 100%;}
+
+.page_1 { background: url(img/0455.png) no-repeat;background-size:100% 100%;width: 100%;  height: 100%; position: absolute;}
+.page_2 { background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_3 { background: url(img/index3.jpg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_4 { background: darkturquoise;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_5 {background: dodgerblue;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_6 {background: url(img/u=730452558,1687175746&fm=21&gp=0.jpg) no-repeat;background-size:100% 100%; width: 100%;  height: 100%;position: absolute;}
+.page_7 {background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_8 {background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.pages{width: 100%; height: 95%; margin:25px auto; }
+</style>
+
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery3.js"></script>
+<script type="text/javascript" src="js/cube.js"></script>
+<script src="js/dist/echarts.js"></script>
+<!-- <script src="js/ThreeDturn.js"></script> -->
+
+<script type="text/javascript" src="js/dist/echarts-all.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript">
+
+$(function(){
+   
+    $("#za").on("touchstart",function(){
+         
+           
+            
+                alert("收藏成功！");
+          
+    })
+});
+
+
+</script>
+
+
+
+</head>
+<body>
+<i class="fa fa-reply fa-4x" id="zans" style="color:orangered;position: fixed;bottom: 1%;right:1%;z-index: 999999;"></i>
+<i class="fa fa-rss-square fa-4x animated bounceIn infinite" id="za" style="color:orangered;position: fixed;bottom: 15%;right:1%;z-index: 999999;"></i> 
+<div class="page_wrap" id="page_wrap">
+    
+   
+ <div id="page_5" class="page_5">
+      <div class="pages" id="main5"  style="height:100%;width:100%;position: absolute;"></div>
+    </div>
+
+
+</div>
+<script src="js/touch.js"></script>
+<script type="text/javascript">    
+ var zans=document.getElementById('zans');
+ zans.addEventListener('touchstart',function(){
+     window.open('function-cube.html','_self');
+ },false);
+
+     require.config({
+            paths: {
+                echarts: 'js/dist'
+            }
+        });
+       
+        // 使用
+       require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/k',// 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/bar',
+                'echarts/chart/line',
+                'echarts/chart/map'
+             
+            ],
+       function(ec){
+
+             var myChartjj=ec.init(document.getElementById("main5"));
+  optionjj = {
+    title :{
+        text : '金融业绩数据',
+        subtext : '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'axis',
+        formatter: function (params){
+            return params[0].name + ' : '
+                   + (params[2].value - params[1].value > 0 ? '+' : '-') 
+                   + params[0].value + '<br/>'
+                   + params[2].seriesName + ' : ' + params[2].value + '<br/>'
+                   + params[3].seriesName + ' : ' + params[3].value + '<br/>'
+        }
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true},
+            x:'center',
+            y:'bottom',
+            orient:'vertical'
+        }
+    },
+    legend: {
+        data:['本周', '上周'],
+        selectedMode:false
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            min : 200,
+            max : 450
+        }
+    ],
+    series : [
+        {
+            name:'本周',
+            type:'line',
+            data:[400, 374, 251, 300, 420, 400, 440]
+        },
+        {
+            name:'上周',
+            type:'line',
+            symbol:'none',
+            itemStyle:{
+                normal:{
+                  lineStyle: {
+                    width:1,
+                    type:'dashed'
+                  }
+                }
+            },
+            data:[320, 332, 301, 334, 360, 330, 350]
+        },
+        {
+            name:'上周2',
+            type:'bar',
+            stack: '1',
+            barWidth: 6,
+            itemStyle:{
+                normal:{
+                    color:'rgba(0,0,0,0)'
+                },
+                emphasis:{
+                    color:'rgba(0,0,0,0)'
+                }
+            },
+            data:[320, 332, 251, 300, 360, 330, 350]
+        },
+        {
+            name:'变化',
+            type:'bar',
+            stack: '1',
+            data:[
+              80, 42, 
+              {value : 50, itemStyle:{ normal:{color:'red'}}},
+              {value : 34, itemStyle:{ normal:{color:'red'}}}, 
+              60, 70, 90
+            ]
+        }
+    ]
+};
+                myChartjj.setOption(optionjj);  
+ 
+                    
+            }
+        );
+
+</script>
+</body>
+</html>

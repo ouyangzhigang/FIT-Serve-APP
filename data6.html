@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/paper.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DEMO</title>
+
+<style type="text/css" >
+* { margin: 0; padding: 0;}
+html, body { width: 100%; height: 100%; overflow: hidden;background: #555;}
+.page_wrap { position: relative;width: 100%;height: 100%;}
+
+.page_1 { background: url(img/0455.png) no-repeat;background-size:100% 100%;width: 100%;  height: 100%; position: absolute;}
+.page_2 { background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_3 { background: url(img/index3.jpg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_4 { background: darkturquoise;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_5 {background:  url(img/20141116210325_FVPRa.jpeg);background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_6 {background: url(img/u=730452558,1687175746&fm=21&gp=0.jpg) no-repeat;background-size:100% 100%; width: 100%;  height: 100%;position: absolute;}
+.page_7 {background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_8 {background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.pages{width: 100%; height: 95%; margin:25px auto; }
+</style>
+
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery3.js"></script>
+<script type="text/javascript" src="js/cube.js"></script>
+<script src="js/dist/echarts.js"></script>
+<!-- <script src="js/ThreeDturn.js"></script> -->
+
+<script type="text/javascript" src="js/dist/echarts-all.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript">
+
+$(function(){
+   
+    $("#za").on("touchstart",function(){
+         
+           
+            
+                alert("收藏成功！");
+          
+    })
+});
+
+
+</script>
+
+
+
+</head>
+<body>
+<i class="fa fa-reply fa-4x" id="zans" style="color:orangered;position: fixed;bottom: 1%;right:1%;z-index: 999999;"></i>
+<i class="fa fa-rss-square fa-4x animated bounceIn infinite" id="za" style="color:orangered;position: fixed;bottom: 15%;right:1%;z-index: 999999;"></i> 
+<div class="page_wrap" id="page_wrap">
+    
+   
+ <div id="page_5" class="page_5">
+      <div class="pages" id="main5"  style="height:90%;width:110%;position: absolute;"></div>
+    </div>
+
+
+</div>
+<script src="js/touch.js"></script>
+<script type="text/javascript">    
+ var zans=document.getElementById('zans');
+ zans.addEventListener('touchstart',function(){
+     window.open('function-cube.html','_self');
+ },false);
+
+     require.config({
+            paths: {
+                echarts: 'js/dist'
+            }
+        });
+       
+        // 使用
+       require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/k',// 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/bar',
+                'echarts/chart/line',
+                'echarts/chart/map'
+             
+            ],
+       function(ec){
+
+             var myChartjj=ec.init(document.getElementById("main5"));
+ optionjj = {
+    tooltip : {
+        show: true,
+        trigger: 'item'
+    },
+    legend: {
+        data:['股票A','股票B','股票C','股票D']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+            
+        },
+        x:'9',
+        itemGap :15,
+        padding:5,
+        itemSize :25,
+        orient:'vertical'
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'股票A',
+            type:'bar',
+            itemStyle: {        // 系列级个性化样式，纵向渐变填充
+                normal: {
+                    barBorderColor:'red',
+                    barBorderWidth: 5,
+                    color : (function (){
+                        var zrColor = require('zrender/tool/color');
+                        return zrColor.getLinearGradient(
+                            0, 400, 0, 300,
+                            [[0, 'green'],[1, 'yellow']]
+                        )
+                    })()
+                },
+                emphasis: {
+                    barBorderWidth: 5,
+                    barBorderColor:'green',
+                    color: (function (){
+                        var zrColor = require('zrender/tool/color');
+                        return zrColor.getLinearGradient(
+                            0, 400, 0, 300,
+                            [[0, 'red'],[1, 'orange']]
+                        )
+                    })(),
+                    label : {
+                        show : true,
+                        position : 'top',
+                        formatter : "{a} {b} {c}",
+                        textStyle : {
+                            color: 'blue'
+                        }
+                    }
+                }
+            },
+            data:[220, 232, 101, 234, 190, 330, 210]
+        },
+        {
+            name:'股票B',
+            type:'bar',
+            stack: '总量',
+            data:[120, '-', 451, 134, 190, 230, 110]
+        },
+        {
+            name:'股票C',
+            type:'bar',
+            stack: '总量',
+            itemStyle: {                // 系列级个性化
+                normal: {
+                    barBorderWidth: 6,
+                    barBorderColor:'tomato',
+                    color: 'red'
+                },
+                emphasis: {
+                    barBorderColor:'red',
+                    color: 'blue'
+                }
+            },
+            data:[
+                320, 332, 100, 334,
+                {
+                    value: 390,
+                    symbolSize : 10,   // 数据级个性化
+                    itemStyle: {
+                        normal: {
+                            color :'lime'
+                        },
+                        emphasis: {
+                            color: 'skyBlue'
+                        }
+                    }
+                },
+                330, 320
+            ]
+        },
+        {
+            name:'股票D',
+            type:'bar',
+            barWidth: 40,                   // 系列级个性化，柱形宽度
+            itemStyle: {
+                normal: {                   // 系列级个性化，横向渐变填充
+                    borderRadius: 5,
+                    color : (function (){
+                        var zrColor = require('zrender/tool/color');
+                        return zrColor.getLinearGradient(
+                            0, 0, 1000, 0,
+                            [[0, 'rgba(30,144,255,0.8)'],[1, 'rgba(138,43,226,0.8)']]
+                        )
+                    })(),
+                    label : {
+                        show : true,
+                        textStyle : {
+                            fontSize : '20',
+                            fontFamily : '微软雅黑',
+                            fontWeight : 'bold'
+                        }
+                    }
+                }
+            },
+            data:[
+                620, 732, 
+                {
+                    value: 701,
+                    itemStyle : { normal: {label : {position: 'inside'}}}
+                },
+                734, 890, 930, 820
+            ],
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'},
+                    {type : 'max'},
+                    {type : 'min'}
+                ]
+            }
+        }
+    ]
+};
+                    
+                myChartjj.setOption(optionjj);  
+ 
+                    
+            }
+        );
+
+</script>
+</body>
+</html>

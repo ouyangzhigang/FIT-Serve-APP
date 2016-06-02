@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/paper.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DEMO</title>
+
+<style type="text/css" >
+* { margin: 0; padding: 0;}
+html, body { width: 100%; height: 100%; overflow: hidden;background: #555;}
+.page_wrap { position: relative;width: 100%;height: 100%;}
+
+.page_1 { background: url(img/0455.png) no-repeat;background-size:100% 100%;width: 100%;  height: 100%; position: absolute;}
+.page_2 { background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_3 { background: url(img/index3.jpg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_4 { background: darkturquoise;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_5 {background:  url(img/20141116210325_FVPRa.jpeg);background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_6 {background: url(img/u=730452558,1687175746&fm=21&gp=0.jpg) no-repeat;background-size:100% 100%; width: 100%;  height: 100%;position: absolute;}
+.page_7 {background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.page_8 {background: url(img/20141116210325_FVPRa.jpeg) no-repeat;background-size:100% 100%;  width: 100%;  height: 100%;position: absolute;}
+.pages{width: 100%; height: 95%; margin:25px auto; }
+</style>
+
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery3.js"></script>
+<script type="text/javascript" src="js/cube.js"></script>
+<script src="js/dist/echarts.js"></script>
+<!-- <script src="js/ThreeDturn.js"></script> -->
+
+<script type="text/javascript" src="js/dist/echarts-all.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript">
+
+$(function(){
+   
+    $("#za").on("touchstart",function(){
+         
+           
+            
+                alert("收藏成功！");
+          
+    })
+});
+
+
+</script>
+
+
+
+</head>
+<body>
+<i class="fa fa-reply fa-4x" id="zans" style="color:orangered;position: fixed;bottom: 1%;right:1%;z-index: 999999;"></i>
+<i class="fa fa-rss-square fa-4x animated bounceIn infinite" id="za" style="color:orangered;position: fixed;bottom: 15%;right:1%;z-index: 999999;"></i> 
+<div class="page_wrap" id="page_wrap">
+    
+   
+ <div id="page_5" class="page_5">
+      <div class="pages" id="main5"  style="height:90%;width:95%;position: absolute;"></div>
+    </div>
+
+
+</div>
+<script src="js/touch.js"></script>
+<script type="text/javascript">    
+ var zans=document.getElementById('zans');
+ zans.addEventListener('touchstart',function(){
+     window.open('function-cube.html','_self');
+ },false);
+
+     require.config({
+            paths: {
+                echarts: 'js/dist'
+            }
+        });
+       
+        // 使用
+       require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/k',// 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/bar',
+                'echarts/chart/line',
+                'echarts/chart/map'
+             
+            ],
+       function(ec){
+
+             var myChartjj=ec.init(document.getElementById("main5"));
+var zrColor = require('zrender/tool/color');
+var colorList = [
+  '#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed',
+  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0'
+];
+var itemStyle = {
+    normal: {
+        color: function(params) {
+          if (params.dataIndex < 0) {
+            // for legend
+            return zrColor.lift(
+              colorList[colorList.length - 1], params.seriesIndex * 0.1
+            );
+          }
+          else {
+            // for bar
+            return zrColor.lift(
+              colorList[params.dataIndex], params.seriesIndex * 0.1
+            );
+          }
+        }
+    }
+};
+optionjj = {
+    title: {
+        text: '2010-2013年中国城镇居民家庭人均消费构成（元）',
+        subtext: '数据来自国家统计局',
+        sublink: 'http://data.stats.gov.cn/search/keywordlist2?keyword=%E5%9F%8E%E9%95%87%E5%B1%85%E6%B0%91%E6%B6%88%E8%B4%B9'
+    },
+    tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(255,255,255,0.7)',
+        axisPointer: {
+            type: 'shadow'
+        },
+        formatter: function(params) {
+            // for text color
+            var color = colorList[params[0].dataIndex];
+            var res = '<div style="color:' + color + '">';
+            res += '<strong>' + params[0].name + '消费（元）</strong>'
+            for (var i = 0, l = params.length; i < l; i++) {
+                res += '<br/>' + params[i].seriesName + ' : ' + params[i].value 
+            }
+            res += '</div>';
+            return res;
+        },
+        y:'bottom'
+    },
+    legend: {
+        x: 'right',
+        data:['2010','2011','2012','2013'],
+        y:55,
+        itemWidth:25
+    },
+    toolbox: {
+        show: true,
+        orient: 'vertical',
+        y: 'center',
+        feature: {
+            mark: {show: true},
+            dataView: {show: true, readOnly: false},
+            restore: {show: true},
+            saveAsImage: {show: true}
+
+        },
+        itemSize:35,
+        textStyle :{
+              lineStyle : {
+            width : 2,
+            color : '#1e90ff',
+            type : 'dashed'
+        }
+        }
+
+    },
+    calculable: true,
+    grid: {
+        y: 90,
+        y2: 10,
+        x2: 10
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['食品', '衣着', '居住', '家庭设备及用品', '医疗保健', '交通和通信', '文教娱乐服务', '其他']
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '2010',
+            type: 'bar',
+            itemStyle: itemStyle,
+            data: [4804.7,1444.3,1332.1,908,871.8,1983.7,1627.6,499.2]
+        },
+        {
+            name: '2011',
+            type: 'bar',
+            itemStyle: itemStyle,
+            data: [5506.3,1674.7,1405,1023.2,969,2149.7,1851.7,581.3]
+        },
+        {
+            name: '2012',
+            type: 'bar',
+            itemStyle: itemStyle,
+            data: [6040.9,1823.4,1484.3,1116.1,1063.7,2455.5,2033.5,657.1]
+        },
+        {
+            name: '2013',
+            type: 'bar',
+            itemStyle: itemStyle,
+            data: [6311.9,1902,1745.1,1215.1,1118.3,2736.9,2294,699.4]
+        }
+    ]
+};
+                    
+                    
+                myChartjj.setOption(optionjj);  
+ 
+                    
+            }
+        );
+
+</script>
+</body>
+</html>
